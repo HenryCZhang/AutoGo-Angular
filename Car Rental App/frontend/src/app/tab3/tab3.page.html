@@ -1,0 +1,43 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      My Business
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!--Car Client List-->
+  <ion-list *ngFor="let car of cars" >
+      <div class="row">
+        <div class="col">
+          <img class='carImg' src="http://localhost:8000/images/{{car.car_picture}}">
+          <ul>
+            <h3>{{car.model}}</h3>
+            <li><p>Return Location: <br>{{car.return_location}}</p></li>
+            <li><p>Return Date: {{car.end_date | date}}</p></li>
+          </ul>
+        </div>
+        <div class="col">
+          <ion-card-content class='message-avatar'>
+            <!-- ngIf: check if the car has an order on it-->
+            <div *ngIf='car.Orders[0]'>
+              <h1>Client:</h1>
+              <ion-item>
+                <ion-avatar slot="start">
+                  <img src="http://localhost:8000/images/{{car.Orders[0].client_picture}}">
+                </ion-avatar>
+                <ion-label>
+                  <h2>{{car.Orders[0].client_firstname}} {{car.Orders[0].client_lastname}}</h2>
+                  <h3>{{car.Orders[0].client_email}}</h3>
+                </ion-label>
+              </ion-item>
+            </div>
+            <ion-button color="danger" (click)="confirmDelete(car)" [hidden]='car.Orders[0]'>Remove - (No Client)</ion-button>
+          </ion-card-content>
+        </div>
+      </div>
+  </ion-list>
+
+</ion-content>

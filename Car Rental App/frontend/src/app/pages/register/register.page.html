@@ -1,0 +1,96 @@
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-item>
+      <ion-icon name="home-outline" slot="start"></ion-icon>
+      <a routerLink="" routerLinkActive="active"><ion-label>Home</ion-label></a><br>
+    </ion-item>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Register</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <form [formGroup]="registerForm">
+      <div class="mb-3">
+          <label class="form-label">First Name</label>
+          <input type="text" class="form-control" formControlName="first_name" [(ngModel)]='first_name' name="first_name">
+      </div>
+      <ion-item *ngIf="first_nameFormControl.touched && first_nameFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+  
+      <div class="mb-3">
+          <label class="form-label">Last Name</label>
+          <input type="text" class="form-control" formControlName="last_name" [(ngModel)]='last_name' name="last_name">
+      </div>
+      <ion-item *ngIf="last_nameFormControl.touched && last_nameFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+  
+      <div class="mb-3">
+          <label class="form-label">Email address</label>
+          <input type="email" class="form-control" formControlName="email" [(ngModel)]='email' name="email">
+      </div>
+      <ion-item *ngIf="emailFormControl.touched && emailFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+  
+      <div class="mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="password">
+      </div>
+      <ion-item *ngIf="passwordFormControl.touched && passwordFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <!-- <div class="mb-3">
+      <label class="form-label">Confirm Password (no function)</label>
+      <input type="password" class="form-control" formControlName="confirmPassword">
+      </div>
+
+      <ion-item *ngIf="confirm_passwordFormControl.touched && registerForm.hasError('mismatchedPasswords')" color="danger">
+        Please enter the same password
+      </ion-item> -->
+
+      <div class="mb-3">
+        <label class="form-label">Profile Image</label>
+        <input type="file" class="form-control" (change)="onFileChange($event)">
+      </div>
+
+      <button type="submit" class="btn btn-primary" (click)="register()" [disabled]='registerForm.invalid'>Submit</button>
+   </form>
+
+   <!--Contact Table-->
+   <!-- <form [formGroup]="registerForm_contact">
+    <div class="mb-3">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" formControlName="first_name" [(ngModel)]='first_name' name="first_name">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" formControlName="last_name" [(ngModel)]='last_name' name="last_name">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input type="email" class="form-control" formControlName="email" [(ngModel)]='email' name="email">
+    </div>
+    
+    <button type="submit" class="btn btn-primary" (click)="addContact()" >Add Contact</button>
+ </form> -->
+  </ion-content>
+</div>

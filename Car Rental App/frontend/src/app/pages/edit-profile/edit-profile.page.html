@@ -1,0 +1,52 @@
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-item>
+      <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+      <a routerLink="/tabs/tab4" routerLinkActive="active"><ion-label>Back</ion-label></a><br>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="home-outline" slot="start"></ion-icon>
+      <a routerLink="" routerLinkActive="active"><ion-label>Home</ion-label></a><br>
+    </ion-item>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>My Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <form>
+
+      <div class="mb-3">
+        <label class="form-label">Change UserName:</label>
+        <input type="text" class="form-control" [(ngModel)]='first_name' name="first_name" placeholder="first name">
+        <input type="text" class="form-control" [(ngModel)]='last_name' name="last_name" placeholder="last name">
+      </div>
+
+      <div class="mb-3">
+        <label for="phone_number" class="form-label">Change Phone Number:</label>
+        <input type="number" class="form-control" [(ngModel)]='phone_number' name="phone_number" placeholder="phone number">
+      </div>
+
+      <div class="mb-3">
+        <label for="profile_picture" class="form-label">Change Profile Picture:</label>
+        <input type="file" class="form-control" (change)="onFileChange($event)" [(ngModel)]='profile_picture' name="profile_picture">
+      </div>
+
+      <ion-button color='primary' (click)='updateProfile()'>Submit</ion-button> 
+   </form>
+
+  </ion-content>
+</div>

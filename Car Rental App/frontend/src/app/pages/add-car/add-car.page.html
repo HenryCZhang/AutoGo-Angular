@@ -1,0 +1,144 @@
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-item>
+      <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+      <a routerLink="/tabs/tab4" routerLinkActive="active"><ion-label>Back</ion-label></a><br>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="briefcase-outline" slot="start"></ion-icon>
+      <a routerLink="/tabs/tab3" routerLinkActive="active"><ion-label>Business</ion-label></a><br>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="home-outline" slot="start"></ion-icon>
+      <a routerLink="" routerLinkActive="active"><ion-label>Home</ion-label></a><br>
+    </ion-item>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Add New Car</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <form [formGroup]='carForm'>
+
+      <ion-item>
+        <ion-icon name="earth-outline" slot="start"></ion-icon>
+        <ion-label>Country</ion-label>
+        <ion-select placeholder="Select One" formControlName='country'>
+          <ion-select-option value="canada">Canada</ion-select-option>
+          <ion-select-option value="us">US</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="countryFormControl.touched && countryFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="business-outline" slot="start"></ion-icon>
+        <ion-label>City</ion-label>
+        <ion-select placeholder="Select One" formControlName="city">
+          <ion-select-option value="toronto">Toronto</ion-select-option>
+          <ion-select-option value="london">London</ion-select-option>
+          <ion-select-option value="calgory">Calgory</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="cityFormControl.touched && cityFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+
+      <ion-item>
+        <ion-icon name="location-outline" slot="start"></ion-icon>
+        <ion-label position="stacked">Return Location:</ion-label>
+        <ion-input formControlName="return_location" placeholder="street number/city/postal code"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="return_locationFormControl.touched && return_locationFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name='car-outline' slot="start"></ion-icon>
+        <ion-label>Vehicle Type:</ion-label>
+        <ion-select placeholder="Select One" formControlName="type">
+          <ion-select-option value="Civic">Civic</ion-select-option>
+          <ion-select-option value="SUV">SUV</ion-select-option>
+          <ion-select-option value="Sports">Sports</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="typeFormControl.touched && typeFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Seats:</ion-label>
+        <ion-select placeholder="Select One" formControlName='seats'>
+          <ion-select-option value=2>2</ion-select-option>
+          <ion-select-option value=4>4</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="seatsFormControl.touched && seatsFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Make:</ion-label>
+        <ion-input formControlName="make"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="makeFormControl.touched && makeFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Model:</ion-label>
+        <ion-input formControlName="model"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="modelFormControl.touched && modelFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Model Year:</ion-label>
+        <ion-input type="number" formControlName="model_year"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="model_yearFormControl.touched && model_yearFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Start Date:</ion-label>
+        <ion-input type="datetime-local" formControlName="start_date"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="start_dateFormControl.touched && start_dateFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">End Date:</ion-label>
+        <ion-input type="datetime-local" formControlName='end_date'></ion-input>
+      </ion-item>
+      <ion-item *ngIf="end_dateFormControl.touched && end_dateFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+
+      <div class="mb-3">
+        <ion-label position="stacked">Car Picture:</ion-label>
+        <input type="file" class="form-control" (change)="onFileChange($event)">
+      </div>
+      
+      <ion-button color='dark' (click)='onSubmit()' [disabled]='carForm.invalid'>Add</ion-button>  
+   </form>
+
+  </ion-content>
+</div>

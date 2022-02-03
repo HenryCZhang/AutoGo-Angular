@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <img src='../../assets/Games-Road-Trip-Road96-1.jpeg' class='headimg'>
+
+  <form [formGroup]='searchForm'>
+    <ion-item>
+      <ion-icon name="earth-outline" slot="start"></ion-icon>
+      <ion-label>Country</ion-label>
+      <ion-select placeholder="Select One" formControlName='country' [(ngModel)]='country' name="country">
+        <ion-select-option value="canada">Canada</ion-select-option>
+        <ion-select-option value="us">US</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      <ion-label>City</ion-label>
+      <ion-select placeholder="Select One" formControlName='city' [(ngModel)]='city' name="city">
+        <ion-select-option value="toronto">Toronto</ion-select-option>
+        <ion-select-option value="london">London</ion-select-option>
+        <ion-select-option value="calgory">Calgory</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='car-outline' slot="start"></ion-icon>
+      <ion-label>Vehicle Type:</ion-label>
+      <ion-select placeholder="Select One" formControlName='vehicle_type' [(ngModel)]='vehicle_type' name="vehicle_type">
+        <ion-select-option value="civic">Civic</ion-select-option>
+        <ion-select-option value="suv">SUV</ion-select-option>
+        <ion-select-option value="sports">Sports</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Start Date:</ion-label>
+        <ion-input type="datetime-local" formControlName='start_date' [(ngModel)]='start_date' name="start_date"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="start_dateFormControl.touched && start_dateFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">End Date:</ion-label>
+        <ion-input type="datetime-local" formControlName='end_date' [(ngModel)]='end_date' name="end_date"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="end_dateFormControl.touched && end_dateFormControl.errors?.required" color="danger">
+        This field is required
+      </ion-item>
+  </form>
+
+    <ion-button color='dark' (click)='searchCar()'>Search</ion-button>
+
+    <ion-list *ngFor="let car of cars" >
+      <ion-card>
+        <img class='carImg' src="http://localhost:8000/images/{{car.car_picture}}" (click)='toggleCarDetails(car)'>
+        <ion-card-header>
+          <ion-card-title class="ion-card-title-model">{{car.model}}, {{car.model_year}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <div *ngIf="car.toggled">
+            <ion-card-title>Make: {{car.make}}</ion-card-title>
+            <ion-card-title>Seats: {{car.seats}}</ion-card-title>
+            <ion-card-title>Type: {{car.type}}</ion-card-title>
+          </div>
+        </ion-card-content>
+        <ion-button color="dark" [hidden]='ownerRelation(car)' (click)='contactOwner(car)'>Contact Owner</ion-button>
+        <ion-button color="warning" (click)="placeOrder(car)" [disabled]='car.rented' [hidden]='ownerRelation(car)'>Place Order</ion-button>
+      </ion-card>
+    </ion-list>
+
+</ion-content>
+

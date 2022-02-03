@@ -1,0 +1,48 @@
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-item>
+      <ion-icon name="arrow-back-outline" slot="start"></ion-icon>
+      <a routerLink="/tabs/tab4" routerLinkActive="active"><ion-label>Back</ion-label></a><br>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="home-outline" slot="start"></ion-icon>
+      <a routerLink="" routerLinkActive="active"><ion-label>Home</ion-label></a><br>
+    </ion-item>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>My Contact</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content class="ion-padding">
+  <!-- <ion-button (click)='getContacts()' class='view-contact-btn' color='dark'>View Saved Contact</ion-button> -->
+
+  <ion-list *ngFor="let contact of contacts" >
+    {{contact.Lessors[0]}}
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="http://localhost:8000/images/{{contact.contact_picture}}">
+        <img src=''>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{contact.first_name}} {{contact.last_name}}</h2>
+        <h3>{{contact.email}}</h3>
+      </ion-label>
+      <ion-button color="danger" slot="end" (click)="confirmDelete(contact.id)">Delete</ion-button>
+    </ion-item>
+  </ion-list>
+
+  </ion-content>
+</div>

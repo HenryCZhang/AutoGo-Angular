@@ -1,0 +1,23 @@
+<ion-item>
+  <ion-avatar slot="start">
+    <!-- testing -->
+    <a routerLink="/edit-profile" routerLinkActive="active"><img src={{user_img_src}}></a>
+  </ion-avatar>
+  <ion-label *ngIf='current_user'>
+    <h2>{{current_user.first_name}} {{current_user.last_name}}</h2>
+    <h3>{{current_user.email}}</h3>
+    <h3>{{current_user.phone_number}} (phone)</h3>
+  </ion-label>
+</ion-item>
+
+<ion-content [fullscreen]="true">
+
+  <ion-text>
+    <a routerLink="/edit-profile" routerLinkActive="active"><h3 class="nav">Change Profile</h3></a>
+    <a routerLink="/my-contact" routerLinkActive="active"><h3 class="nav">View Saved Contact</h3></a>
+    <a routerLink="/add-car" routerLinkActive="active"><h3 class="nav">Add Car</h3></a>
+  </ion-text>
+
+  <ion-button *ngIf="!loginActivated" (click)='logout()' color='danger' class="logout">Log Out</ion-button> 
+  
+</ion-content>
