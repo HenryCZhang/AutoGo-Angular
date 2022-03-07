@@ -94,6 +94,7 @@ export class Tab1Page {
           handler: () => {
             this.userService.logout();
             this.showMessage("You are logged out");
+            window.location.reload();
           }
         },
       ]

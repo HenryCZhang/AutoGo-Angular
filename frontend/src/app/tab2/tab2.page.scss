@@ -2,10 +2,6 @@ ion-title{
     text-align: center;
 }
 
-.view-contact{
-    margin-left:23%;
-}
-
 .carImg{
     width:500px;
     height:auto;
@@ -20,11 +16,6 @@ ion-title{
     .message-avatar{
         padding-top: 150px;
     }
-    .view-contact{
-        margin-left: 46%;
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
 }
 
 .container{
@@ -32,17 +23,18 @@ ion-title{
     border-bottom: black 1px solid;
 }
 
-.reminder{
-    font-size: large;
-    font-weight: bold;
-
+.no-order-text{
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 5%;
 }
 
-ion-progress-bar{
-    height: 10px;
-    border-radius: 5px;
-}
+// .reminder{
+//     font-size: large;
+//     font-weight: bold;
+// }
 
-.order{
-background-color: yellow;
-}
+// ion-progress-bar{
+//     height: 10px;
+//     border-radius: 5px;
+// }

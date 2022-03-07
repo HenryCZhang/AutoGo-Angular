@@ -114,6 +114,7 @@ export class EditProfilePage implements OnInit {
     this.updateProfilePicture();
     this.updateUserName();
     this.showMessage('Profile update successful');
+    window.location.reload();
   }
 
 }

@@ -24,6 +24,7 @@ export class Tab2Page {
   orders; 
   owner_img_src;
   contactForm;
+  countOrders=0;
 
   constructor(private formBuilder: FormBuilder,private _alertController: AlertController,private toastController: ToastController,private userService:UserService, private carService:CarService, private orderService:OrderService,private contactService:ContactService) {
     this.current_user = userService.get_current_user();
@@ -50,6 +51,9 @@ export class Tab2Page {
   ionViewWillEnter(){
     this.orderService.get_order_byUser(this.current_user.email).subscribe((result)=>{
       this.orders=result;
+      if(this.orders[0]!=undefined){
+        this.countOrders++;
+      }
     },(err)=>{
       console.log(err);
     });
@@ -76,6 +80,7 @@ export class Tab2Page {
             this.orderService.delete_order(order_id).subscribe((result)=>{
               console.log(result);
               this.showMessage("Order has been deleted");
+              window.location.reload();
             },(err)=>{
               console.log(err);
               this.showMessage("Err! Order could not be deleted");
@@ -100,7 +105,8 @@ export class Tab2Page {
     let contact_picture=contact.lessor_picture;
     this.contactService.update_contact_picture(contact.id,contact_picture).subscribe((result)=>{
       console.log(result);
-      this.showMessage('updated contact_picture  successful');
+      this.showMessage('updated contact_picture successful');
+      window.location.reload();
     },(err)=>{
       console.log(err);
       this.showMessage("Err! contact_picture update failed");

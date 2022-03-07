@@ -13,26 +13,24 @@ import { Router } from '@angular/router';
 })
 export class Tab3Page {
 
-  current_user
+  current_user;
   lessorForm;
   cars:Car[];
+  countCars=0;
+
 
   constructor(private builder:FormBuilder, private carService:CarService,private userService:UserService,public toastController: ToastController, private alertController:AlertController,private router:Router) {
     //get the current user's info
     this.current_user = userService.get_current_user();
-
-    //  this.lessorForm = builder.group({
-    //   firstName:['',[Validators.required]],
-    //   lastName:['',[Validators.required]],
-    //   email:['',[Validators.required]],
-    //   password:['',[Validators.required]],
-    // })
   }
 
   //get all the cars under this lessor account
   ionViewWillEnter(){
     this.carService.get_car_byLessor(this.current_user.id).subscribe((result)=>{
       this.cars=result;
+      if(this.cars[0]!==undefined){
+        this.countCars=1;
+      }
     },(err)=>{
       console.log(err);
     });
@@ -60,6 +58,7 @@ export class Tab3Page {
             this.carService.delete_car(car.id).subscribe((result)=>{
               console.log(result);
               this.showMessage("Car has been deleted");
+               window.location.reload();
             },(err)=>{
               console.log(err);
             });
@@ -68,6 +67,11 @@ export class Tab3Page {
       ]
     })
     await alert.present();
+  }
+
+  //Add Car button onClick
+  navToAddCar(){
+    this.router.navigateByUrl('/add-car');
   }
 
 

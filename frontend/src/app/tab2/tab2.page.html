@@ -7,39 +7,54 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
- <ion-list *ngFor="let order of orders" >
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <img class='carImg' src="http://localhost:8000/images/{{order.Car.car_picture}}" />
-        <!-- TODO: the color of the label and progression bar corresponds to the days left -->
-        <!-- <ion-label class='reminder' color='danger'>2 days till return</ion-label>
+  <!--If there are orders, then show orders-->
+  <div *ngIf="countOrders!=0; else noOrder">
+    <ion-list *ngFor="let order of orders">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <img class='carImg' src="http://localhost:8000/images/{{order.Car.car_picture}}" />
+            {{order.Car.car_picture}}
+            <!-- TODO: the color of the label and progression bar corresponds to the days left -->
+            <!-- <ion-label class='reminder' color='danger'>2 days till return</ion-label>
         <ion-progress-bar value="0.2" reversed='true' color='danger'></ion-progress-bar> -->
-        <h1>{{order.Car.model}}, {{order.Car.model_year}}</h1>
-        <ul>
-          <li><p>Return Date: {{order.end_date | date}}</p></li>
-          <li><p>Resturn Location: <br>{{order.Car.return_location}}</p></li>
-        </ul>
+            <h1>{{order.Car.model}}, {{order.Car.model_year}}</h1>
+            <ul>
+              <li>
+                <p><b>Return Date:</b> {{order.end_date | date}}</p>
+              </li>
+              <li>
+                <p><b>Return Location:</b> <br>{{order.Car.return_location}}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="col">
+            <ion-card-content class='message-avatar'>
+              <h1>Owner:</h1>
+              <ion-item>
+                <ion-avatar slot="start">
+                  <img src='http://localhost:8000/images/{{order.Car.Lessor.lessor_picture}}'>
+                </ion-avatar>
+                <ion-label>
+                  <h2>{{order.Car.Lessor.first_name}} {{order.Car.Lessor.last_name}}</h2>
+                  <h3>{{order.Car.Lessor.email}}</h3>
+                  <h3>{{order.Car.Lessor.phone_number}}</h3>
+                </ion-label>
+              </ion-item>
+              <ion-button color="warning" (click)="keepContact(order.Car.Lessor)">Keep Contact</ion-button>
+              <ion-button color="danger" (click)="deleteOrder(order.id,order.Car)">Delete Order</ion-button>
+            </ion-card-content>
+          </div>
+        </div>
       </div>
-      <div class="col">
-        <ion-card-content class='message-avatar'>
-          <h1>Owner:</h1>
-          <ion-item>
-            <ion-avatar slot="start">
-              <img src='http://localhost:8000/images/{{order.Car.Lessor.lessor_picture}}'>
-            </ion-avatar>
-            <ion-label>
-              <h2>{{order.Car.Lessor.first_name}} {{order.Car.Lessor.last_name}}</h2>
-              <h3>{{order.Car.Lessor.email}}</h3>
-              <h3>{{order.Car.Lessor.phone_number}}</h3>
-            </ion-label>
-          </ion-item>
-          <ion-button color="warning" (click)="keepContact(order.Car.Lessor)">Keep Contact</ion-button>
-          <ion-button color="danger" (click)="deleteOrder(order.id,order.Car)">Delete Order</ion-button>
-        </ion-card-content>
-      </div>
-    </div>
+    </ion-list>
   </div>
- </ion-list> 
-</ion-content>
 
+  <ng-template #noOrder>
+    <div class="no-order-text">
+      <h2>It seems that you don't have any order</h2>
+    </div>
+
+  </ng-template>
+
+</ion-content>

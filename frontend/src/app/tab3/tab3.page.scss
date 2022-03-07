@@ -2,26 +2,33 @@ ion-title{
     text-align: center;
 }
 
-ion-button{
-    width:100%;
-}
-
 .carImg{
-    width:100%;
+    width:500px;
     height:auto;
 }
 
-.row{
+// laptop view
+@media only screen and (min-width: 1000px) {
+    .carImg{
+        width:700px;
+        height:auto;
+    }
+    .message-avatar{
+        padding-top: 150px;
+    }
+}
+
+.container{
     margin-bottom: 20px;
     border-bottom: black 1px solid;
 }
 
-.reminder{
-    font-size: large;
-    font-weight: bold;
+.add-car-btn-1{
+    text-align: center;
 }
 
-ion-progress-bar{
-    height: 10px;
-    border-radius: 5px;
+.add-car-btn-2{
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 40%;
 }
