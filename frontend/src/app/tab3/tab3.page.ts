@@ -17,6 +17,7 @@ export class Tab3Page {
   lessorForm;
   cars:Car[];
   countCars=0;
+  hideAddCarBtn1=true;
 
 
   constructor(private builder:FormBuilder, private carService:CarService,private userService:UserService,public toastController: ToastController, private alertController:AlertController,private router:Router) {
@@ -30,6 +31,9 @@ export class Tab3Page {
       this.cars=result;
       if(this.cars[0]!==undefined){
         this.countCars=1;
+        this.hideAddCarBtn1=false;
+      }else{
+        this.hideAddCarBtn1=true;
       }
     },(err)=>{
       console.log(err);
