@@ -1,5 +1,8 @@
-# AutoGo Car Rental Mobile App (Ionic Angular)
 
+<h1 align="center">
+AutoGo - Car Rental Mobile App<br>
+ (Ionic Angular)
+</h1>
 
 <div float= "left" align="center">
 <img src="frontend/src/assets/demo1.png" width="250" height="auto"  />
