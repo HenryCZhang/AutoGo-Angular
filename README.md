@@ -1,6 +1,12 @@
 # AutoGo Car Rental Mobile App (Ionic Angular)
 
-![demo1.png](fronted/src/assets/demo1.png)
+
+<div float= "left" align="center">
+<img src="frontend/src/assets/demo1.png" width="250" height="auto"  />
+<img src="frontend/src/assets/demo2.png" width="250" height="auto" />
+<img src="frontend/src/assets/demo3.png" width="250" height="auto" />
+</div>
+  
 //good README ref: https://github.com/wkocjan/gatsby-theme-intro
 //TODO: fix tab3 car img issue!
 
