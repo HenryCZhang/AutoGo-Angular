@@ -3,6 +3,12 @@ AutoGo - Car Rental Mobile App<br>
  (Ionic Angular)
 </h1>
 
+<h2 align="center">
+View Live Demo 🚀 <br/>
+ https://henryczhang.github.io/
+</h2>
+
+
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
