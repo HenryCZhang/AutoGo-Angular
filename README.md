@@ -1,56 +1,28 @@
 <h1 align="center">
-AutoGo - Car Rental Mobile App<br>
- (Ionic Angular)
+AutoGo 国际租车平台<br>
 </h1>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-<h3>AutoGo is a user-freindly automotive rental and leasing mobile app. It's a showcase of Ionic App Platform technologies, including Ionic Framework, Capacitor and miscellaneous plugins.
-</h3>
+### 项目背景
+AutoGo 是一款具有社交属性的国际化私家车租赁移动应用，旨在为车主和租客搭建高效、便捷的车辆共享平台。车主可以通过平台发布闲置车辆的租赁信息以获取收益，而租客则可以根据需求灵活选择各类车型进行租赁，提升出行效率与用车体验。
 <div float= "left" align="center">
 <img src="frontend/src/assets/demo1.png" width="250" height="auto"  />
 <img src="frontend/src/assets/demo2.png" width="250" height="auto" />
 <img src="frontend/src/assets/demo3.png" width="250" height="auto" />
 </div>
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
-### Built With
-
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-* [Ionic](https://ionicframework.com/)
-* [Angular](https://angular.io/)
-* [Node.js](https://nodejs.org/en/)
-* [Bootstrap](https://getbootstrap.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
+### 关键技术栈：
+- 前端 ：[Ionic](https://ionicframework.com/) + [Angular](https://angular.io/) + [Bootstrap](https://getbootstrap.com)
+- 后端 ：Node.js + Express
+- 数据库 ：MongoDB（或其他具体数据库类型，如MySQL/MongoDB，如需补充）
+### 核心职责与成果：
+- 独立完成前端UI设计与交互实现，基于Ionic和Angular开发跨平台移动应用界面，确保良好的用户体验与响应式布局。
+- 设计并实现Restful API接口，完成前后端数据通信与功能对接，保障系统的稳定性与扩展性。
+- 参与后端架构设计，使用Node.js搭建服务端逻辑，实现用户管理、车辆信息发布、订单处理等核心功能。
+- 设计并搭建后端数据库模型，优化数据存储与查询逻辑，提升系统性能与数据安全性。
+### 应用价值：
+- 实现了C2C模式下的车辆资源共享，帮助车主提高资产利用率，同时降低租客用车成本。
+- 平台具备良好的扩展性与国际化支持，助力推动共享经济在汽车租赁领域的创新与发展。
+- 提供安全、透明、高效的租赁流程，增强用户信任感与平台粘性。
 
 
 <!-- GETTING STARTED -->
