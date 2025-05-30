@@ -13,7 +13,7 @@ AutoGo 是一款具有社交属性的国际化私家车租赁移动应用，旨�
 ### 关键技术栈：
 - 前端 ：[Ionic](https://ionicframework.com/) + [Angular](https://angular.io/) + [Bootstrap](https://getbootstrap.com)
 - 后端 ：Node.js + Express
-- 数据库 ：MongoDB（或其他具体数据库类型，如MySQL/MongoDB，如需补充）
+- 数据库 ：MySQL
 ### 核心职责与成果：
 - 独立完成前端UI设计与交互实现，基于Ionic和Angular开发跨平台移动应用界面，确保良好的用户体验与响应式布局。
 - 设计并实现Restful API接口，完成前后端数据通信与功能对接，保障系统的稳定性与扩展性。
